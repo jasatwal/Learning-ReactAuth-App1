@@ -11,6 +11,11 @@ function tokenForUser(user) {
   config.secret);
 }
 
+// The request has already been auth'd
+exports.signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+};
+
 exports.signup = (req, res, next) => {
   const { email, password } = req.body;
 
