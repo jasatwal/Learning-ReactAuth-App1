@@ -12,8 +12,10 @@ import SignUp from './components/auth/SignUp';
 import Feature from './components/Feature';
 
 const store = createStore(
-  reducers,
-  {},
+  reducers, 
+  {
+    auth: { authenticated: localStorage.getItem('token') }
+  },
   applyMiddleware(reduxThunk)
 );
 
